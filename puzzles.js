@@ -11,13 +11,13 @@ const puzzles = [
                 words: ["Verre", "Tasse", "Gobelet", "Timbale"]
             },
             {
+                title: "Se trouve sur un taco",
+                words: ["Avocat", "Citron vert", "Ananas", "Coriandre"]
+            },
+            {
                 title: "En poesie",
                 words: ["Vers", "Alexandrin", "Sonnet", "Rythme"]
             },
-            {
-                title: "Se trouve sur un taco",
-                words: ["Avocat", "Citron vert", "Ananas", "Coriandre"]
-            }
         ]
     }
 ]; 
