@@ -57,8 +57,11 @@ function fillGrid() {
     // Add submit button click listener
     addSubmitListener();
     
-    // Initialize submit button state
-    updateSubmitButtonState();
+    // Add deselect button click listener
+    addDeselectListener();
+    
+    // Initialize button states
+    updateButtonStates();
 }
 
 // Add click event listeners to all grid blocks
@@ -80,21 +83,30 @@ function addClickListeners() {
                 }
             }
             
-            // Update submit button state after each click
-            updateSubmitButtonState();
+            // Update button states after each click
+            updateButtonStates();
         });
     });
 }
 
-// Update submit button state based on selected blocks
-function updateSubmitButtonState() {
+// Update button states based on selected blocks
+function updateButtonStates() {
     const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
     const submitButton = document.querySelector('.submit-button');
+    const deselectButton = document.querySelector('.deselect-button');
     
+    // Submit button: enabled only when exactly 4 blocks are selected
     if (clickedBlocks.length === 4) {
         submitButton.disabled = false;
     } else {
         submitButton.disabled = true;
+    }
+    
+    // Deselect button: enabled only when at least 1 block is selected
+    if (clickedBlocks.length > 0) {
+        deselectButton.disabled = false;
+    } else {
+        deselectButton.disabled = true;
     }
 }
 
@@ -118,7 +130,7 @@ function handleSubmission() {
     if (categoryIndex !== -1) {
         // Success: replace the 4 blocks with a single category block
         replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex);
-        updateSubmitButtonState();
+        updateButtonStates();
     } else {
         // Wrong answer: decrease attempts and update display
         remainingAttempts--;
@@ -162,6 +174,26 @@ function shakeBlocks(blocks) {
             block.classList.remove('shake');
         }, 500);
     });
+}
+
+// Add deselect button click listener
+function addDeselectListener() {
+    const deselectButton = document.querySelector('.deselect-button');
+    
+    deselectButton.addEventListener('click', function() {
+        if (!this.disabled) {
+            deselectAllBlocks();
+        }
+    });
+}
+
+// Deselect all selected blocks
+function deselectAllBlocks() {
+    const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
+    clickedBlocks.forEach(block => {
+        block.classList.remove('clicked');
+    });
+    updateButtonStates();
 }
 
 // Replace 4 selected blocks with a single category block
@@ -263,8 +295,8 @@ function revealAllCategories() {
         }
     }
     
-    // Disable submit button
-    updateSubmitButtonState();
+    // Disable buttons
+    updateButtonStates();
 }
 
 // Initialize when DOM is loaded

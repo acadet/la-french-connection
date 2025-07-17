@@ -68,7 +68,6 @@ body {
 
 /* Submit button */
 .submit-button {
-    margin-top: 1.5rem;
     padding: 12px 30px;
     background-color: #333;
     color: white;
@@ -97,6 +96,48 @@ body {
 }
 
 .submit-button:disabled:hover {
+    background-color: #ccc;
+    transform: none;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* Deselect button */
+.deselect-button {
+    padding: 12px 30px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.deselect-button:hover {
+    background-color: #777;
+    transform: translateY(-1px);
+}
+
+.deselect-button:active {
+    transform: translateY(0);
+}
+
+.deselect-button:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.deselect-button:disabled:hover {
     background-color: #ccc;
     transform: none;
 }
