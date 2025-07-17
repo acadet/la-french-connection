@@ -1,9 +1,9 @@
 const puzzles = [
     {
-        date: "2025-07-18",
+        date: "2025-07-21",
         puzzle: [
             {
-                title: "Fruits manage comme legumes",
+                title: "Fruits manges comme legumes",
                 words: ["Tomate", "Poivron", "Aubergine", "Concombre"]
             },
             {
@@ -21,7 +21,7 @@ const puzzles = [
         ]
     },
     {
-        date: "2025-07-17",
+        date: "2025-07-18",
         puzzle: [
             {
                 title: "Couleurs",
