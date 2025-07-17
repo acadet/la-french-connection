@@ -13,6 +13,16 @@ function getTodaysPuzzle() {
     return puzzles.find(puzzle => puzzle.date === today);
 }
 
+// Shuffle array randomly using Fisher-Yates algorithm
+function shuffleArray(array) {
+    const shuffled = [...array]; // Create a copy
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 // Fill the grid with puzzle words
 function fillGrid() {
     const todaysPuzzle = getTodaysPuzzle();
@@ -25,16 +35,18 @@ function fillGrid() {
     const gridBlocks = document.querySelectorAll('.grid-block');
     const words = todaysPuzzle.words;
     
-    // Flatten the 4x4 array to match the 16 grid blocks
-    let wordIndex = 0;
-    for (let row = 0; row < 4; row++) {
-        for (let col = 0; col < 4; col++) {
-            if (gridBlocks[wordIndex]) {
-                gridBlocks[wordIndex].textContent = words[row][col];
-            }
-            wordIndex++;
+    // Flatten the 4x4 array into a single array of 16 words
+    const allWords = words.flat();
+    
+    // Randomize the order of words
+    const shuffledWords = shuffleArray(allWords);
+    
+    // Fill the grid blocks with shuffled words
+    shuffledWords.forEach((word, index) => {
+        if (gridBlocks[index]) {
+            gridBlocks[index].textContent = word;
         }
-    }
+    });
 }
 
 // Initialize when DOM is loaded
