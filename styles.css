@@ -136,6 +136,18 @@ body {
     color: white;
     aspect-ratio: auto;
     max-width: 100%;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.category-title {
+    font-weight: 700;
+    font-size: clamp(0.8rem, 2.2vw, 1.1rem);
+}
+
+.category-words {
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .grid-block.category-0 {

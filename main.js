@@ -33,10 +33,10 @@ function fillGrid() {
     }
     
     const gridBlocks = document.querySelectorAll('.grid-block');
-    const words = todaysPuzzle.puzzle;
+    const categories = todaysPuzzle.puzzle;
     
-    // Flatten the 4x4 array into a single array of 16 words
-    const allWords = words.flat();
+    // Flatten the category objects into a single array of 16 words
+    const allWords = categories.flatMap(category => category.words);
     
     // Randomize the order of words
     const shuffledWords = shuffleArray(allWords);
@@ -132,8 +132,8 @@ function isValidGroup(selectedWords) {
     // Find which category matches the selected words
     for (let i = 0; i < categories.length; i++) {
         const category = categories[i];
-        if (category.length === selectedWords.length &&
-            category.every(word => selectedWords.includes(word))) {
+        if (category.words.length === selectedWords.length &&
+            category.words.every(word => selectedWords.includes(word))) {
             return i; // Return the category index
         }
     }
@@ -161,10 +161,27 @@ function replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex) {
         block.remove();
     });
     
+    // Get the category title
+    const todaysPuzzle = getTodaysPuzzle();
+    const categoryTitle = todaysPuzzle.puzzle[categoryIndex].title;
+    
     // Create the category result block
     const categoryBlock = document.createElement('div');
     categoryBlock.className = `grid-block category-result category-${categoryIndex} bounce`;
-    categoryBlock.textContent = selectedWords.join(', ');
+    
+    // Create title element
+    const titleElement = document.createElement('div');
+    titleElement.className = 'category-title';
+    titleElement.textContent = categoryTitle;
+    
+    // Create words element
+    const wordsElement = document.createElement('div');
+    wordsElement.className = 'category-words';
+    wordsElement.textContent = selectedWords.join(', ');
+    
+    // Append title and words to the category block
+    categoryBlock.appendChild(titleElement);
+    categoryBlock.appendChild(wordsElement);
     
     // Remove bounce class after animation completes
     setTimeout(() => {
