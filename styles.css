@@ -159,11 +159,11 @@ body {
 
 .category-title {
     font-weight: 700;
-    font-size: clamp(0.4rem, 3.2vw, 1.2rem);
+    font-size: clamp(0.4rem, 3.4vw, 1.2rem);
 }
 
 .category-words {
-    font-size: clamp(0.4rem, 2.8vw, 1rem);
+    font-size: clamp(0.4rem, 3vw, 1rem);
     font-weight: 500;
     opacity: 0.9;
 }
