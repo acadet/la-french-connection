@@ -307,7 +307,7 @@ function replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex) {
     // Create words element
     const wordsElement = document.createElement('div');
     wordsElement.className = 'category-words';
-    wordsElement.textContent = selectedWords.join(', ');
+    wordsElement.textContent = selectedPuzzle.puzzle[categoryIndex].words.join(', ');
     
     // Append title and words to the category block
     categoryBlock.appendChild(titleElement);
