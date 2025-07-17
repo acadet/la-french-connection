@@ -65,3 +65,26 @@ body {
 .grid-block.clicked:hover {
     background-color: #333;
 }
+
+/* Submit button */
+.submit-button {
+    margin-top: 1.5rem;
+    padding: 12px 30px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submit-button:hover {
+    background-color: #555;
+    transform: translateY(-1px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
