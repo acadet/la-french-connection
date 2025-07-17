@@ -150,6 +150,7 @@ function handleSubmission() {
         
         updateButtonStates();
     } else {
+        
         // Wrong answer: decrease attempts and update display
         remainingAttempts--;
         updateAttemptsDisplay();
@@ -162,6 +163,11 @@ function handleSubmission() {
         } else {
             // Shake the selected blocks and clear selection after
             shakeBlocks(clickedBlocks);
+
+            // Check if 3 words are from the same category
+            if (hasThreeFromSameCategory(selectedWords)) {
+                showAlmostPopup();
+            }
         }
     }
 }
@@ -210,6 +216,42 @@ function isValidGroup(selectedWords) {
     }
     
     return -1; // No match found
+}
+
+// Check if exactly 3 words are from the same category
+function hasThreeFromSameCategory(selectedWords) {
+    const selectedPuzzle = getSelectedPuzzle();
+    if (!selectedPuzzle) return false;
+    
+    const categories = selectedPuzzle.puzzle;
+    
+    // Check each category to see if it has exactly 3 matches
+    for (let i = 0; i < categories.length; i++) {
+        const category = categories[i];
+        const matchCount = category.words.filter(word => selectedWords.includes(word)).length;
+        if (matchCount === 3) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Show "Presque..." popup
+function showAlmostPopup() {
+    const popup = document.getElementById('popup-overlay');
+    popup.classList.add('show');
+    
+    // Hide popup after 2 seconds
+    setTimeout(() => {
+        hideAlmostPopup();
+    }, 2000);
+}
+
+// Hide "Presque..." popup
+function hideAlmostPopup() {
+    const popup = document.getElementById('popup-overlay');
+    popup.classList.remove('show');
 }
 
 // Add shake animation to blocks
