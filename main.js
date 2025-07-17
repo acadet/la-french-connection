@@ -33,7 +33,7 @@ function fillGrid() {
     }
     
     const gridBlocks = document.querySelectorAll('.grid-block');
-    const words = todaysPuzzle.words;
+    const words = todaysPuzzle.puzzle;
     
     // Flatten the 4x4 array into a single array of 16 words
     const allWords = words.flat();
@@ -127,7 +127,7 @@ function isValidGroup(selectedWords) {
     const todaysPuzzle = getTodaysPuzzle();
     if (!todaysPuzzle) return -1;
     
-    const categories = todaysPuzzle.words;
+    const categories = todaysPuzzle.puzzle;
     
     // Find which category matches the selected words
     for (let i = 0; i < categories.length; i++) {
