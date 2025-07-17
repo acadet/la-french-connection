@@ -111,10 +111,10 @@ function handleSubmission() {
     const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
     const selectedWords = Array.from(clickedBlocks).map(block => block.textContent);
     
-    if (isValidGroup(selectedWords)) {
-        alert('Success');
-        // Clear selection after success
-        clickedBlocks.forEach(block => block.classList.remove('clicked'));
+    const categoryIndex = isValidGroup(selectedWords);
+    if (categoryIndex !== -1) {
+        // Success: replace the 4 blocks with a single category block
+        replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex);
         updateSubmitButtonState();
     } else {
         // Shake the selected blocks
@@ -125,15 +125,20 @@ function handleSubmission() {
 // Check if selected words form a valid group
 function isValidGroup(selectedWords) {
     const todaysPuzzle = getTodaysPuzzle();
-    if (!todaysPuzzle) return false;
+    if (!todaysPuzzle) return -1;
     
     const categories = todaysPuzzle.words;
     
-    // Check each category to see if it matches the selected words
-    return categories.some(category => {
-        return category.length === selectedWords.length &&
-               category.every(word => selectedWords.includes(word));
-    });
+    // Find which category matches the selected words
+    for (let i = 0; i < categories.length; i++) {
+        const category = categories[i];
+        if (category.length === selectedWords.length &&
+            category.every(word => selectedWords.includes(word))) {
+            return i; // Return the category index
+        }
+    }
+    
+    return -1; // No match found
 }
 
 // Add shake animation to blocks
@@ -145,6 +150,45 @@ function shakeBlocks(blocks) {
             block.classList.remove('shake');
         }, 500);
     });
+}
+
+// Replace 4 selected blocks with a single category block
+function replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex) {
+    const gridContainer = document.querySelector('.grid-container');
+    
+    // Remove all 4 selected blocks
+    clickedBlocks.forEach(block => {
+        block.remove();
+    });
+    
+    // Create the category result block
+    const categoryBlock = document.createElement('div');
+    categoryBlock.className = `grid-block category-result category-${categoryIndex}`;
+    categoryBlock.textContent = selectedWords.join(', ');
+    
+    // Find where to insert: after existing category blocks or at the top
+    const remainingBlocks = Array.from(gridContainer.children);
+    const categoryBlocks = remainingBlocks.filter(block => 
+        block.classList.contains('category-result')
+    );
+    const lastCategoryBlock = categoryBlocks[categoryBlocks.length - 1];
+    
+    if (lastCategoryBlock) {
+        // Insert after the last existing category block
+        const nextSibling = lastCategoryBlock.nextSibling;
+        if (nextSibling) {
+            gridContainer.insertBefore(categoryBlock, nextSibling);
+        } else {
+            gridContainer.appendChild(categoryBlock);
+        }
+    } else {
+        // No existing category blocks, insert at the top
+        if (remainingBlocks.length > 0) {
+            gridContainer.insertBefore(categoryBlock, remainingBlocks[0]);
+        } else {
+            gridContainer.appendChild(categoryBlock);
+        }
+    }
 }
 
 // Initialize when DOM is loaded

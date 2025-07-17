@@ -113,3 +113,31 @@ body {
 .grid-block.shake {
     animation: shake 0.5s ease-in-out;
 }
+
+/* Category result blocks */
+.grid-block.category-result {
+    grid-column: 1 / -1;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    padding: 0.5rem;
+    font-weight: 600;
+    color: white;
+    aspect-ratio: auto;
+    max-width: 100%;
+}
+
+.grid-block.category-0 {
+    background-color: #ffd700; /* Yellow */
+    color: black;
+}
+
+.grid-block.category-1 {
+    background-color: #32cd32; /* Green */
+}
+
+.grid-block.category-2 {
+    background-color: #4169e1; /* Blue */
+}
+
+.grid-block.category-3 {
+    background-color: #800080; /* Purple */
+}
