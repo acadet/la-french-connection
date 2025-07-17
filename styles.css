@@ -192,6 +192,38 @@ body {
     opacity: 0.9;
 }
 
+/* Date selector */
+.date-selector {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.date-selector label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.date-dropdown {
+    padding: 8px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.date-dropdown:hover {
+    border-color: #999;
+}
+
+.date-dropdown:focus {
+    outline: none;
+    border-color: #333;
+}
+
 /* Attempts remaining */
 .attempts-remaining {
     margin: 1rem 0;

@@ -1,5 +1,6 @@
 // Game state
 let remainingAttempts = 4;
+let selectedPuzzleDate = null;
 
 // Get today's date in YYYY-MM-DD format
 function getTodaysDate() {
@@ -10,10 +11,9 @@ function getTodaysDate() {
     return `${year}-${month}-${day}`;
 }
 
-// Find puzzle for today's date
-function getTodaysPuzzle() {
-    const today = getTodaysDate();
-    return puzzles.find(puzzle => puzzle.date === today);
+// Find puzzle for selected date
+function getSelectedPuzzle() {
+    return puzzles.find(puzzle => puzzle.date === selectedPuzzleDate);
 }
 
 // Shuffle array randomly using Fisher-Yates algorithm
@@ -28,15 +28,15 @@ function shuffleArray(array) {
 
 // Fill the grid with puzzle words
 function fillGrid() {
-    const todaysPuzzle = getTodaysPuzzle();
+    const selectedPuzzle = getSelectedPuzzle();
     
-    if (!todaysPuzzle) {
-        console.log('No puzzle found for today:', getTodaysDate());
+    if (!selectedPuzzle) {
+        console.log('No puzzle found for date:', selectedPuzzleDate);
         return;
     }
     
     const gridBlocks = document.querySelectorAll('.grid-block');
-    const categories = todaysPuzzle.puzzle;
+    const categories = selectedPuzzle.puzzle;
     
     // Flatten the category objects into a single array of 16 words
     const allWords = categories.flatMap(category => category.words);
@@ -148,10 +148,10 @@ function handleSubmission() {
 
 // Check if selected words form a valid group
 function isValidGroup(selectedWords) {
-    const todaysPuzzle = getTodaysPuzzle();
-    if (!todaysPuzzle) return -1;
+    const selectedPuzzle = getSelectedPuzzle();
+    if (!selectedPuzzle) return -1;
     
-    const categories = todaysPuzzle.puzzle;
+    const categories = selectedPuzzle.puzzle;
     
     // Find which category matches the selected words
     for (let i = 0; i < categories.length; i++) {
@@ -206,8 +206,8 @@ function replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex) {
     });
     
     // Get the category title
-    const todaysPuzzle = getTodaysPuzzle();
-    const categoryTitle = todaysPuzzle.puzzle[categoryIndex].title;
+    const selectedPuzzle = getSelectedPuzzle();
+    const categoryTitle = selectedPuzzle.puzzle[categoryIndex].title;
     
     // Create the category result block
     const categoryBlock = document.createElement('div');
@@ -266,8 +266,8 @@ function updateAttemptsDisplay() {
 
 // Reveal all remaining categories when attempts are exhausted
 function revealAllCategories() {
-    const todaysPuzzle = getTodaysPuzzle();
-    if (!todaysPuzzle) return;
+    const selectedPuzzle = getSelectedPuzzle();
+    if (!selectedPuzzle) return;
     
     const gridContainer = document.querySelector('.grid-container');
     const existingCategoryBlocks = gridContainer.querySelectorAll('.category-result');
@@ -278,8 +278,8 @@ function revealAllCategories() {
     clickedBlocks.forEach(block => block.classList.remove('clicked'));
     
     // Reveal remaining categories
-    for (let i = solvedCategories; i < todaysPuzzle.puzzle.length; i++) {
-        const category = todaysPuzzle.puzzle[i];
+    for (let i = solvedCategories; i < selectedPuzzle.puzzle.length; i++) {
+        const category = selectedPuzzle.puzzle[i];
         const categoryWords = category.words;
         
         // Find the corresponding word blocks
@@ -299,5 +299,74 @@ function revealAllCategories() {
     updateButtonStates();
 }
 
+// Populate date dropdown with puzzle dates
+function populateDateDropdown() {
+    const dropdown = document.querySelector('.date-dropdown');
+    
+    puzzles.forEach(puzzle => {
+        const option = document.createElement('option');
+        option.value = puzzle.date;
+        option.textContent = formatDate(puzzle.date);
+        dropdown.appendChild(option);
+    });
+    
+    // Set default to first puzzle
+    if (puzzles.length > 0) {
+        selectedPuzzleDate = puzzles[0].date;
+        dropdown.value = selectedPuzzleDate;
+    }
+}
+
+// Format date for display
+function formatDate(dateString) {
+    const date = new Date(dateString + 'T00:00:00');
+    return date.toLocaleDateString('fr-FR', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+}
+
+// Add date dropdown change listener
+function addDateDropdownListener() {
+    const dropdown = document.querySelector('.date-dropdown');
+    
+    dropdown.addEventListener('change', function() {
+        selectedPuzzleDate = this.value;
+        resetGame();
+    });
+}
+
+// Reset game with new puzzle
+function resetGame() {
+    // Reset attempts
+    remainingAttempts = 4;
+    updateAttemptsDisplay();
+    
+    // Clear grid and refill with new puzzle
+    const gridContainer = document.querySelector('.grid-container');
+    gridContainer.innerHTML = '';
+    
+    // Create 16 empty blocks
+    for (let i = 0; i < 16; i++) {
+        const block = document.createElement('div');
+        block.className = 'grid-block';
+        gridContainer.appendChild(block);
+    }
+    
+    // Fill with new puzzle and reinitialize
+    fillGrid();
+}
+
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', fillGrid); 
+document.addEventListener('DOMContentLoaded', function() {
+    // Populate dropdown and set initial date
+    populateDateDropdown();
+    
+    // Add dropdown listener
+    addDateDropdownListener();
+    
+    // Initialize the game
+    fillGrid();
+}); 
