@@ -54,12 +54,6 @@ function fillGrid() {
     // Add click event listeners to toggle colors
     addClickListeners();
     
-    // Add submit button click listener
-    addSubmitListener();
-    
-    // Add deselect button click listener
-    addDeselectListener();
-    
     // Initialize button states
     updateButtonStates();
 }
@@ -366,6 +360,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add dropdown listener
     addDateDropdownListener();
+    
+    // Add submit button click listener
+    addSubmitListener();
+    
+    // Add deselect button click listener
+    addDeselectListener();
     
     // Initialize the game
     fillGrid();
