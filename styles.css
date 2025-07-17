@@ -104,6 +104,7 @@ body {
 
 /* Button container */
 .button-container {
+    max-width: 100%;
     display: flex;
     gap: 1rem;
     justify-content: center;
