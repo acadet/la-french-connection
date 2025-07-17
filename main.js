@@ -86,8 +86,10 @@ function addClickListeners() {
 // Update button states based on selected blocks
 function updateButtonStates() {
     const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
+    const remainingWordBlocks = document.querySelectorAll('.grid-block:not(.category-result)');
     const submitButton = document.querySelector('.submit-button');
     const deselectButton = document.querySelector('.deselect-button');
+    const shuffleButton = document.querySelector('.shuffle-button');
     
     // Submit button: enabled only when exactly 4 blocks are selected
     if (clickedBlocks.length === 4) {
@@ -101,6 +103,13 @@ function updateButtonStates() {
         deselectButton.disabled = false;
     } else {
         deselectButton.disabled = true;
+    }
+    
+    // Shuffle button: enabled only when there are remaining word blocks
+    if (remainingWordBlocks.length > 0) {
+        shuffleButton.disabled = false;
+    } else {
+        shuffleButton.disabled = true;
     }
 }
 
@@ -187,6 +196,45 @@ function deselectAllBlocks() {
     clickedBlocks.forEach(block => {
         block.classList.remove('clicked');
     });
+    updateButtonStates();
+}
+
+// Add shuffle button click listener
+function addShuffleListener() {
+    const shuffleButton = document.querySelector('.shuffle-button');
+    
+    shuffleButton.addEventListener('click', function() {
+        if (!this.disabled) {
+            shuffleRemainingBlocks();
+        }
+    });
+}
+
+// Shuffle remaining word blocks
+function shuffleRemainingBlocks() {
+    const remainingWordBlocks = document.querySelectorAll('.grid-block:not(.category-result)');
+    
+    if (remainingWordBlocks.length === 0) return;
+    
+    // Extract text content from remaining blocks
+    const wordsArray = Array.from(remainingWordBlocks).map(block => block.textContent);
+    
+    // Shuffle the words array
+    const shuffledWords = shuffleArray(wordsArray);
+    
+    // Clear selections before shuffling
+    remainingWordBlocks.forEach(block => {
+        block.classList.remove('clicked');
+    });
+    
+    // Assign shuffled words back to blocks
+    shuffledWords.forEach((word, index) => {
+        if (remainingWordBlocks[index]) {
+            remainingWordBlocks[index].textContent = word;
+        }
+    });
+    
+    // Update button states after shuffle
     updateButtonStates();
 }
 
@@ -371,6 +419,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add deselect button click listener
     addDeselectListener();
+    
+    // Add shuffle button click listener
+    addShuffleListener();
     
     // Initialize the game
     fillGrid();
