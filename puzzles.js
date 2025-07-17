@@ -19,5 +19,26 @@ const puzzles = [
                 words: ["Vers", "Alexandrin", "Sonnet", "Rythme"]
             },
         ]
-    }
+    },
+    {
+        date: "2025-07-16",
+        puzzle: [
+            {
+                title: "Membres de la famille",
+                words: ["Tonton", "Cousin", "Papi", "Niece"]
+            },
+            {
+                title: "Poissons",
+                words: ["Thon", "Saumon", "Morue", "Cabillaud"]
+            },
+            {
+                title: "Insectes",
+                words: ["Libellule", "Mouche", "Papillon", "Gendarme"]
+            },
+            {
+                title: "A toi",
+                words: ["Ton", "Tien", "Te", "Tu"]
+            },
+        ]
+    },
 ]; 
