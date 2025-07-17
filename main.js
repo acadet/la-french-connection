@@ -58,7 +58,18 @@ function addClickListeners() {
     
     gridBlocks.forEach(block => {
         block.addEventListener('click', function() {
-            this.classList.toggle('clicked');
+            const isCurrentlyClicked = this.classList.contains('clicked');
+            const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
+            
+            if (isCurrentlyClicked) {
+                // Always allow unclicking
+                this.classList.remove('clicked');
+            } else {
+                // Only allow clicking if less than 4 blocks are selected
+                if (clickedBlocks.length < 4) {
+                    this.classList.add('clicked');
+                }
+            }
         });
     });
 }
