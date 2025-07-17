@@ -163,8 +163,13 @@ function replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex) {
     
     // Create the category result block
     const categoryBlock = document.createElement('div');
-    categoryBlock.className = `grid-block category-result category-${categoryIndex}`;
+    categoryBlock.className = `grid-block category-result category-${categoryIndex} bounce`;
     categoryBlock.textContent = selectedWords.join(', ');
+    
+    // Remove bounce class after animation completes
+    setTimeout(() => {
+        categoryBlock.classList.remove('bounce');
+    }, 600);
     
     // Find where to insert: after existing category blocks or at the top
     const remainingBlocks = Array.from(gridContainer.children);
