@@ -47,6 +47,20 @@ function fillGrid() {
             gridBlocks[index].textContent = word;
         }
     });
+    
+    // Add click event listeners to toggle colors
+    addClickListeners();
+}
+
+// Add click event listeners to all grid blocks
+function addClickListeners() {
+    const gridBlocks = document.querySelectorAll('.grid-block');
+    
+    gridBlocks.forEach(block => {
+        block.addEventListener('click', function() {
+            this.classList.toggle('clicked');
+        });
+    });
 }
 
 // Initialize when DOM is loaded
