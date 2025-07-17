@@ -51,6 +51,9 @@ function fillGrid() {
     // Add click event listeners to toggle colors
     addClickListeners();
     
+    // Add submit button click listener
+    addSubmitListener();
+    
     // Initialize submit button state
     updateSubmitButtonState();
 }
@@ -90,6 +93,58 @@ function updateSubmitButtonState() {
     } else {
         submitButton.disabled = true;
     }
+}
+
+// Add submit button click listener
+function addSubmitListener() {
+    const submitButton = document.querySelector('.submit-button');
+    
+    submitButton.addEventListener('click', function() {
+        if (!this.disabled) {
+            handleSubmission();
+        }
+    });
+}
+
+// Handle submission logic
+function handleSubmission() {
+    const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
+    const selectedWords = Array.from(clickedBlocks).map(block => block.textContent);
+    
+    if (isValidGroup(selectedWords)) {
+        alert('Success');
+        // Clear selection after success
+        clickedBlocks.forEach(block => block.classList.remove('clicked'));
+        updateSubmitButtonState();
+    } else {
+        // Shake the selected blocks
+        shakeBlocks(clickedBlocks);
+    }
+}
+
+// Check if selected words form a valid group
+function isValidGroup(selectedWords) {
+    const todaysPuzzle = getTodaysPuzzle();
+    if (!todaysPuzzle) return false;
+    
+    const categories = todaysPuzzle.words;
+    
+    // Check each category to see if it matches the selected words
+    return categories.some(category => {
+        return category.length === selectedWords.length &&
+               category.every(word => selectedWords.includes(word));
+    });
+}
+
+// Add shake animation to blocks
+function shakeBlocks(blocks) {
+    blocks.forEach(block => {
+        block.classList.add('shake');
+        // Remove shake class after animation completes
+        setTimeout(() => {
+            block.classList.remove('shake');
+        }, 500);
+    });
 }
 
 // Initialize when DOM is loaded
