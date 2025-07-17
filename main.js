@@ -2,6 +2,7 @@
 let remainingAttempts = 4;
 let selectedPuzzleDate = null;
 let submissionHistory = [];
+let gameOver = false;
 
 // Get today's date in YYYY-MM-DD format
 function getTodaysDate() {
@@ -88,26 +89,28 @@ function addClickListeners() {
 function updateButtonStates() {
     const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
     const remainingWordBlocks = document.querySelectorAll('.grid-block:not(.category-result)');
-    const submitButton = document.querySelector('.submit-button');
+    const submitButton = document.querySelector('.submit-button:not(.share-button)');
     const deselectButton = document.querySelector('.deselect-button');
     const shuffleButton = document.querySelector('.shuffle-button');
     
-    // Submit button: enabled only when exactly 4 blocks are selected
-    if (clickedBlocks.length === 4) {
-        submitButton.disabled = false;
-    } else {
-        submitButton.disabled = true;
+    // Submit button: enabled only when exactly 4 blocks are selected and game not over
+    if (submitButton) {
+        if (clickedBlocks.length === 4 && !gameOver) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
     }
     
-    // Deselect button: enabled only when at least 1 block is selected
-    if (clickedBlocks.length > 0) {
+    // Deselect button: enabled only when at least 1 block is selected and game not over
+    if (clickedBlocks.length > 0 && !gameOver) {
         deselectButton.disabled = false;
     } else {
         deselectButton.disabled = true;
     }
     
-    // Shuffle button: enabled only when there are remaining word blocks
-    if (remainingWordBlocks.length > 0) {
+    // Shuffle button: enabled only when there are remaining word blocks and game not over
+    if (remainingWordBlocks.length > 0 && !gameOver) {
         shuffleButton.disabled = false;
     } else {
         shuffleButton.disabled = true;
@@ -137,6 +140,14 @@ function handleSubmission() {
     if (categoryIndex !== -1) {
         // Success: replace the 4 blocks with a single category block
         replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex);
+        
+        // Check if all categories are solved
+        const remainingWordBlocks = document.querySelectorAll('.grid-block:not(.category-result)');
+        if (remainingWordBlocks.length === 0) {
+            gameOver = true;
+            showShareButton();
+        }
+        
         updateButtonStates();
     } else {
         // Wrong answer: decrease attempts and update display
@@ -145,7 +156,9 @@ function handleSubmission() {
         
         if (remainingAttempts <= 0) {
             // No attempts left: reveal all remaining categories
+            gameOver = true;
             revealAllCategories();
+            showShareButton();
         } else {
             // Shake the selected blocks and clear selection after
             shakeBlocks(clickedBlocks);
@@ -372,6 +385,85 @@ function revealAllCategories() {
     updateButtonStates();
 }
 
+// Show share button and hide submit button
+function showShareButton() {
+    const submitButton = document.querySelector('.submit-button');
+    const buttonContainer = document.querySelector('.button-container');
+    
+    // Hide submit button
+    submitButton.style.display = 'none';
+    
+    // Create share button if it doesn't exist
+    let shareButton = document.querySelector('.share-button');
+    if (!shareButton) {
+        shareButton = document.createElement('button');
+        shareButton.className = 'submit-button share-button';
+        shareButton.textContent = 'Partager mes résultats';
+        shareButton.addEventListener('click', shareResults);
+        buttonContainer.appendChild(shareButton);
+    } else {
+        shareButton.style.display = 'block';
+    }
+}
+
+// Hide share button and show submit button
+function hideShareButton() {
+    const submitButton = document.querySelector('.submit-button:not(.share-button)');
+    const shareButton = document.querySelector('.share-button');
+    
+    // Show submit button
+    if (submitButton) {
+        submitButton.style.display = 'block';
+    }
+    
+    // Hide share button
+    if (shareButton) {
+        shareButton.style.display = 'none';
+    }
+}
+
+// Share results using browser share API
+function shareResults() {
+    const selectedPuzzle = getSelectedPuzzle();
+    if (!selectedPuzzle || submissionHistory.length === 0) return;
+    
+    const puzzleDate = formatDate(selectedPuzzleDate);
+    
+    let shareText = `La French Connection - ${puzzleDate}\n`;
+    
+    // Add submission history
+    submissionHistory.forEach((submission, index) => {
+        shareText += submission.join('') + '\n';
+    });
+    
+    // Use browser share API if available
+    if (navigator.share) {
+        navigator.share({
+            title: 'La French Connection',
+            text: shareText,
+            url: window.location.href
+        }).catch(err => {
+            console.log('Error sharing:', err);
+            fallbackShare(shareText);
+        });
+    } else {
+        fallbackShare(shareText);
+    }
+}
+
+// Fallback share method (copy to clipboard)
+function fallbackShare(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Résultats copiés dans le presse-papiers!');
+        }).catch(() => {
+            alert('Impossible de copier automatiquement. Voici vos résultats:\n\n' + text);
+        });
+    } else {
+        alert('Voici vos résultats:\n\n' + text);
+    }
+}
+
 // Populate date dropdown with puzzle dates
 function populateDateDropdown() {
     const dropdown = document.querySelector('.date-dropdown');
@@ -418,10 +510,14 @@ function addDateDropdownListener() {
 
 // Reset game with new puzzle
 function resetGame() {
-    // Reset attempts and submission history
+    // Reset game state
     remainingAttempts = 4;
     submissionHistory = [];
+    gameOver = false;
     updateAttemptsDisplay();
+    
+    // Hide share button and show submit button
+    hideShareButton();
     
     // Clear grid and refill with new puzzle
     const gridContainer = document.querySelector('.grid-container');

@@ -75,6 +75,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
+    text-transform: uppercase;
 }
 
 .submit-button:hover {
@@ -117,6 +118,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
+    text-transform: uppercase;
 }
 
 .deselect-button:hover, .shuffle-button:hover {
