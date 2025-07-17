@@ -88,3 +88,15 @@ body {
 .submit-button:active {
     transform: translateY(0);
 }
+
+.submit-button:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-button:disabled:hover {
+    background-color: #ccc;
+    transform: none;
+}

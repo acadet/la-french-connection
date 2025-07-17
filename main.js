@@ -50,6 +50,9 @@ function fillGrid() {
     
     // Add click event listeners to toggle colors
     addClickListeners();
+    
+    // Initialize submit button state
+    updateSubmitButtonState();
 }
 
 // Add click event listeners to all grid blocks
@@ -70,8 +73,23 @@ function addClickListeners() {
                     this.classList.add('clicked');
                 }
             }
+            
+            // Update submit button state after each click
+            updateSubmitButtonState();
         });
     });
+}
+
+// Update submit button state based on selected blocks
+function updateSubmitButtonState() {
+    const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
+    const submitButton = document.querySelector('.submit-button');
+    
+    if (clickedBlocks.length === 4) {
+        submitButton.disabled = false;
+    } else {
+        submitButton.disabled = true;
+    }
 }
 
 // Initialize when DOM is loaded
