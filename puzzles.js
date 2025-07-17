@@ -1,4 +1,110 @@
 const puzzles = [
+
+    {
+        date: "2025-08-01",
+        puzzle: [
+            {
+                title: "Bleu",
+                words: ["Auvergne", "Gex", "Causses", "Laqueuille"]
+            },
+            {
+                title: "Pate pressee",
+                words: ["Beaufort", "Comte", "Emmental", "Gruyere"]
+            },
+            {
+                title: "Pate molle",
+                words: ["Munster", "Brie", "Neufchatel", "Maroilles"]
+            },
+            {
+                title: "Frais",
+                words: ["Serac", "Recuite", "Brocciu", "Brousse"]
+            },
+        ]
+    },
+    {
+        date: "2025-07-30",
+        puzzle: [
+            {
+                title: "Aperitifs",
+                words: ["Lillet", "Suze", "Pastis", "Campari"]
+            },
+            {
+                title: "Entoure d'eau",
+                words: ["Ile", "Archipel", "Recif", "Atoll"]
+            },
+            {
+                title: "Villes du Nord",
+                words: ["Lille", "Calais", "Roubaix", "Dunkerque"]
+            },
+            {
+                title: "Rivieres",
+                words: ["Isle", "Marne", "Allier", "Tarn"]
+            },
+        ]
+    },
+    {
+        date: "2025-07-28",
+        puzzle: [
+            {
+                title: "Insectes",
+                words: ["Vers", "Asticots", "Larves", "Lombric"]
+            },
+            {
+                title: "Environs",
+                words: ["Parages", "Alentours", "Voisinages", "Abords"]
+            },
+            {
+                title: "Moche",
+                words: ["Boudin", "Cageot", "Thon", "Morue"]
+            },
+            {
+                title: "Se trouve au marche",
+                words: ["Producteur", "Treteaux", "Cabat", "Rotissoire"]
+            },
+        ]
+    },
+    {
+        date: "2025-07-25",
+        puzzle: [
+            {
+                title: "Journeaux",
+                words: ["Canard", "Gazette", "Magazine", "Quotidien"]
+            },
+            {
+                title: "Oiseaux",
+                words: ["Aigrette", "Heron", "Cygne", "Becasse"]
+            },
+            {
+                title: "Charcuterie",
+                words: ["Saucisse", "Knack", "Merguez", "Boudin"]
+            },
+            {
+                title: "Sans intelligence",
+                words: ["Idiot", "Simplet", "Nul", "Andouille"]
+            },
+        ]
+    },
+    {
+        date: "2025-07-23",
+        puzzle: [
+            {
+                title: "Salades",
+                words: ["Grecque", "Cesar", "Nicoise", "Chevre chaud"]
+            },
+            {
+                title: "Chaussures",
+                words: ["Spartiate", "Mocassin", "Espadrille", "Escarpin"]
+            },
+            {
+                title: "Peuples anciens",
+                words: ["Perse", "Macedonien", "Arcadien", "Carthaginois"]
+            },
+            {
+                title: "Nez",
+                words: ["Romain", "Aquilin", "Droit", "Retrousse"]
+            },
+        ]
+    },
     {
         date: "2025-07-21",
         puzzle: [
@@ -32,7 +138,7 @@ const puzzles = [
                 words: ["Verre", "Tasse", "Gobelet", "Timbale"]
             },
             {
-                title: "Se trouve sur un taco",
+                title: "Garniture a tacos",
                 words: ["Avocat", "Citron vert", "Ananas", "Coriandre"]
             },
             {
