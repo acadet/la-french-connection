@@ -1,3 +1,6 @@
+// Game state
+let remainingAttempts = 4;
+
 // Get today's date in YYYY-MM-DD format
 function getTodaysDate() {
     const today = new Date();
@@ -117,8 +120,17 @@ function handleSubmission() {
         replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex);
         updateSubmitButtonState();
     } else {
-        // Shake the selected blocks
-        shakeBlocks(clickedBlocks);
+        // Wrong answer: decrease attempts and update display
+        remainingAttempts--;
+        updateAttemptsDisplay();
+        
+        if (remainingAttempts <= 0) {
+            // No attempts left: reveal all remaining categories
+            revealAllCategories();
+        } else {
+            // Shake the selected blocks and clear selection after
+            shakeBlocks(clickedBlocks);
+        }
     }
 }
 
@@ -211,6 +223,48 @@ function replaceWithCategoryBlock(clickedBlocks, selectedWords, categoryIndex) {
             gridContainer.appendChild(categoryBlock);
         }
     }
+}
+
+// Update attempts display
+function updateAttemptsDisplay() {
+    const attemptsElement = document.querySelector('.attempts-remaining');
+    const circles = '⬤'.repeat(remainingAttempts);
+    attemptsElement.textContent = `Essais restants : ${circles}`;
+}
+
+// Reveal all remaining categories when attempts are exhausted
+function revealAllCategories() {
+    const todaysPuzzle = getTodaysPuzzle();
+    if (!todaysPuzzle) return;
+    
+    const gridContainer = document.querySelector('.grid-container');
+    const existingCategoryBlocks = gridContainer.querySelectorAll('.category-result');
+    const solvedCategories = existingCategoryBlocks.length;
+    
+    // Clear all selected blocks first
+    const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
+    clickedBlocks.forEach(block => block.classList.remove('clicked'));
+    
+    // Reveal remaining categories
+    for (let i = solvedCategories; i < todaysPuzzle.puzzle.length; i++) {
+        const category = todaysPuzzle.puzzle[i];
+        const categoryWords = category.words;
+        
+        // Find the corresponding word blocks
+        const remainingBlocks = Array.from(gridContainer.children).filter(block => 
+            !block.classList.contains('category-result')
+        );
+        const wordsToRemove = remainingBlocks.filter(block => 
+            categoryWords.includes(block.textContent)
+        );
+        
+        if (wordsToRemove.length === 4) {
+            replaceWithCategoryBlock(wordsToRemove, categoryWords, i);
+        }
+    }
+    
+    // Disable submit button
+    updateSubmitButtonState();
 }
 
 // Initialize when DOM is loaded
