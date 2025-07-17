@@ -1,6 +1,7 @@
 // Game state
 let remainingAttempts = 4;
 let selectedPuzzleDate = null;
+let submissionHistory = [];
 
 // Get today's date in YYYY-MM-DD format
 function getTodaysDate() {
@@ -129,6 +130,9 @@ function handleSubmission() {
     const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
     const selectedWords = Array.from(clickedBlocks).map(block => block.textContent);
     
+    // Record the submission with emojis
+    recordSubmission(selectedWords);
+    
     const categoryIndex = isValidGroup(selectedWords);
     if (categoryIndex !== -1) {
         // Success: replace the 4 blocks with a single category block
@@ -147,6 +151,33 @@ function handleSubmission() {
             shakeBlocks(clickedBlocks);
         }
     }
+}
+
+// Record submission with emojis representing categories
+function recordSubmission(selectedWords) {
+    const selectedPuzzle = getSelectedPuzzle();
+    if (!selectedPuzzle) return;
+    
+    const categoryEmojis = ['🟨', '🟩', '🟦', '🟪'];
+    const submissionEmojis = [];
+    
+    // Map each selected word to its category emoji
+    selectedWords.forEach(word => {
+        let foundEmoji = '❓'; // Default if not found
+        
+        for (let i = 0; i < selectedPuzzle.puzzle.length; i++) {
+            const category = selectedPuzzle.puzzle[i];
+            if (category.words.includes(word)) {
+                foundEmoji = categoryEmojis[i];
+                break;
+            }
+        }
+        
+        submissionEmojis.push(foundEmoji);
+    });
+    
+    // Add this submission to history
+    submissionHistory.push(submissionEmojis);
 }
 
 // Check if selected words form a valid group
@@ -387,8 +418,9 @@ function addDateDropdownListener() {
 
 // Reset game with new puzzle
 function resetGame() {
-    // Reset attempts
+    // Reset attempts and submission history
     remainingAttempts = 4;
+    submissionHistory = [];
     updateAttemptsDisplay();
     
     // Clear grid and refill with new puzzle
