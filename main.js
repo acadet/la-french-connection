@@ -296,17 +296,22 @@ function revealAllCategories() {
 // Populate date dropdown with puzzle dates
 function populateDateDropdown() {
     const dropdown = document.querySelector('.date-dropdown');
+    const today = getTodaysDate();
     
-    puzzles.forEach(puzzle => {
+    // Filter puzzles to only include past and today's puzzles
+    const availablePuzzles = puzzles.filter(puzzle => puzzle.date <= today);
+    
+    // Populate dropdown with available puzzles
+    availablePuzzles.forEach(puzzle => {
         const option = document.createElement('option');
         option.value = puzzle.date;
         option.textContent = formatDate(puzzle.date);
         dropdown.appendChild(option);
     });
     
-    // Set default to first puzzle
-    if (puzzles.length > 0) {
-        selectedPuzzleDate = puzzles[0].date;
+    // Set default to the most recent available puzzle (closest to today)
+    if (availablePuzzles.length > 0) {
+        selectedPuzzleDate = availablePuzzles[0].date;
         dropdown.value = selectedPuzzleDate;
     }
 }

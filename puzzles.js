@@ -1,5 +1,26 @@
 const puzzles = [
     {
+        date: "2025-07-18",
+        puzzle: [
+            {
+                title: "Fruits manage comme legumes",
+                words: ["Tomate", "Poivron", "Aubergine", "Concombre"]
+            },
+            {
+                title: "Hommes de loi",
+                words: ["Avocat", "Notaire", "Procureur", "Juge"]
+            },
+            {
+                title: "Officiers",
+                words: ["Gendarme", "Commissaire", "General", "Amiral"]
+            },
+            {
+                title: "Insectes",
+                words: ["Coccinelle", "Scarabee", "Blatte", "Hannetons"]
+            },
+        ]
+    },
+    {
         date: "2025-07-17",
         puzzle: [
             {
