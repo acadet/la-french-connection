@@ -496,13 +496,11 @@ function shareResults() {
 // Fallback share method (copy to clipboard)
 function fallbackShare(text) {
     if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            alert('Résultats copiés dans le presse-papiers!');
-        }).catch(() => {
-            alert('Impossible de copier automatiquement. Voici vos résultats:\n\n' + text);
+        navigator.clipboard.writeText(text).catch(() => {
+            console.log('Could not paste results into clipboard');
         });
     } else {
-        alert('Voici vos résultats:\n\n' + text);
+        console.log('Could not share results');
     }
 }
 
