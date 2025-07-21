@@ -8,12 +8,12 @@ const puzzles = [
                 words: ["Auvergne", "Gex", "Causses", "Laqueuille"]
             },
             {
-                title: "Pate pressee",
-                words: ["Beaufort", "Comte", "Emmental", "Gruyere"]
+                title: "Pâte pressée",
+                words: ["Beaufort", "Comté", "Emmental", "Gruyère"]
             },
             {
-                title: "Pate molle",
-                words: ["Munster", "Brie", "Neufchatel", "Maroilles"]
+                title: "Pâte molle",
+                words: ["Munster", "Brie", "Neufchâtel", "Maroilles"]
             },
             {
                 title: "Frais",
@@ -25,19 +25,19 @@ const puzzles = [
         date: "2025-07-30",
         puzzle: [
             {
-                title: "Aperitifs",
+                title: "Apéritifs",
                 words: ["Lillet", "Suze", "Pastis", "Campari"]
             },
             {
-                title: "Entoure d'eau",
-                words: ["Ile", "Archipel", "Recif", "Atoll"]
+                title: "Entouré d'eau",
+                words: ["Île", "Archipel", "Récif", "Atoll"]
             },
             {
                 title: "Villes du Nord",
                 words: ["Lille", "Calais", "Roubaix", "Dunkerque"]
             },
             {
-                title: "Rivieres",
+                title: "Rivières",
                 words: ["Isle", "Marne", "Allier", "Tarn"]
             },
         ]
@@ -58,8 +58,8 @@ const puzzles = [
                 words: ["Boudin", "Cageot", "Thon", "Morue"]
             },
             {
-                title: "Se trouve au marche",
-                words: ["Producteur", "Treteaux", "Cabat", "Rotissoire"]
+                title: "Se trouve au marché",
+                words: ["Producteur", "Tréteaux", "Cabat", "Rôtissoire"]
             },
         ]
     },
@@ -67,12 +67,12 @@ const puzzles = [
         date: "2025-07-25",
         puzzle: [
             {
-                title: "Journeaux",
+                title: "Journaux",
                 words: ["Canard", "Gazette", "Magazine", "Quotidien"]
             },
             {
                 title: "Oiseaux",
-                words: ["Aigrette", "Heron", "Cygne", "Becasse"]
+                words: ["Aigrette", "Héron", "Cygne", "Bécasse"]
             },
             {
                 title: "Charcuterie",
@@ -89,7 +89,7 @@ const puzzles = [
         puzzle: [
             {
                 title: "Salades",
-                words: ["Grecque", "Cesar", "Nicoise", "Chevre chaud"]
+                words: ["Grecque", "César", "Niçoise", "Chèvre chaud"]
             },
             {
                 title: "Chaussures",
@@ -97,11 +97,11 @@ const puzzles = [
             },
             {
                 title: "Peuples anciens",
-                words: ["Perse", "Macedonien", "Arcadien", "Carthaginois"]
+                words: ["Perse", "Macédonien", "Arcadien", "Carthaginois"]
             },
             {
                 title: "Nez",
-                words: ["Romain", "Aquilin", "Droit", "Retrousse"]
+                words: ["Romain", "Aquilin", "Droit", "Retroussé"]
             },
         ]
     },
@@ -109,7 +109,7 @@ const puzzles = [
         date: "2025-07-21",
         puzzle: [
             {
-                title: "Fruits manges comme legumes",
+                title: "Fruits mangés comme légumes",
                 words: ["Tomate", "Poivron", "Aubergine", "Concombre"]
             },
             {
@@ -118,11 +118,11 @@ const puzzles = [
             },
             {
                 title: "Officiers",
-                words: ["Gendarme", "Commissaire", "General", "Amiral"]
+                words: ["Gendarme", "Commissaire", "Général", "Amiral"]
             },
             {
                 title: "Insectes",
-                words: ["Coccinelle", "Scarabee", "Blatte", "Hannetons"]
+                words: ["Coccinelle", "Scarabée", "Blatte", "Hannetons"]
             },
         ]
     },
@@ -134,15 +134,15 @@ const puzzles = [
                 words: ["Vert", "Orange", "Bleu", "Violet"]
             },
             {
-                title: "Utilises pour boire",
+                title: "Utilisés pour boire",
                 words: ["Verre", "Tasse", "Gobelet", "Timbale"]
             },
             {
-                title: "Garniture a tacos",
+                title: "Garniture à tacos",
                 words: ["Avocat", "Citron vert", "Ananas", "Coriandre"]
             },
             {
-                title: "En poesie",
+                title: "En poésie",
                 words: ["Vers", "Alexandrin", "Sonnet", "Rythme"]
             },
         ]
@@ -152,7 +152,7 @@ const puzzles = [
         puzzle: [
             {
                 title: "Membres de la famille",
-                words: ["Tonton", "Cousin", "Papi", "Niece"]
+                words: ["Tonton", "Cousin", "Papi", "Nièce"]
             },
             {
                 title: "Poissons",
@@ -163,7 +163,7 @@ const puzzles = [
                 words: ["Libellule", "Mouche", "Papillon", "Gendarme"]
             },
             {
-                title: "A toi",
+                title: "À toi",
                 words: ["Ton", "Tien", "Te", "Tu"]
             },
         ]
