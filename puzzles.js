@@ -1,6 +1,69 @@
 const puzzles = [
 
     {
+        date: "2025-08-08",
+        puzzle: [
+            {
+                title: "Métaux",
+                words: ["Or", "Cuivre", "Zinc", "Plomb"]
+            },
+            {
+                title: "Fric",
+                words: ["Pèze", "Blé", "Pognon", "Grisbi"]
+            },
+            {
+                title: "Nuances de gris",
+                words: ["Argent", "Anthracite", "Granit", "Souris"]
+            },
+            {
+                title: "Ensembles pour la table",
+                words: ["Argenterie", "Orfèvrerie", "Ménagère", "Vaisselle"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-06",
+        puzzle: [
+            {
+                title: "Céréales",
+                words: ["Blé", "Avoine", "Orge", "Seigle"]
+            },
+            {
+                title: "Préparations culinaires",
+                words: ["Galette", "Crêpe", "Pancake", "Blini"]
+            },
+            {
+                title: "Argent",
+                words: ["Pognon", "Pèze", "Fric", "Flouze"]
+            },
+            {
+                title: "Tontons Flingueurs",
+                words: ["Grisbi", "Touche", "Pas", "Au"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-04",
+        puzzle: [
+            {
+                title: "Associés avec l'hiver",
+                words: ["Raclette", "Ski", "Neige", "Bonnet"]
+            },
+            {
+                title: "Liés au tennis",
+                words: ["Raquette", "Revers", "Filet", "Balle"]
+            },
+            {
+                title: "Voler",
+                words: ["Racket", "Dérober", "Piquer", "Rafler"]
+            },
+            {
+                title: "Défaite",
+                words: ["Raclée", "Correction", "Fiasco", "Dérouillée"]
+            },
+        ]
+    },
+    {
         date: "2025-08-01",
         puzzle: [
             {
