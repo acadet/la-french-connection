@@ -1,7 +1,49 @@
 const puzzles = [
 
     {
-        date: "2025-08-08",
+        date: "2025-08-22",
+        puzzle: [
+            {
+                title: "Vilain mais affectueux",
+                words: ["Fripouille", "Canaille", "Chenapan", "Filou"]
+            },
+            {
+                title: "Surnoms des partenaires",
+                words: ["Chéri", "Chaton", "Dulcinée", "Sirène"]
+            },
+            {
+                title: "Surnoms des enfants",
+                words: ["Poussin", "Trésor", "Lapin", "Puce"]
+            },
+            {
+                title: "Surnoms des animaux",
+                words: ["Louloute", "Toutou", "Minou", "Belle"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-20",
+        puzzle: [
+            {
+                title: "On en fait de l'huile",
+                words: ["Tournesol", "Colza", "Noix", "Sésame"]
+            },
+            {
+                title: "Sauces à kebab",
+                words: ["Ketchup", "Mayo", "Samurai", "Blanche"]
+            },
+            {
+                title: "Violer",
+                words: ["Désobéir", "Enfreindre", "Outrepasser", "Contrevenir"]
+            },
+            {
+                title: "Personnages du Cluedo",
+                words: ["Moutarde", "Pervenche", "Olive", "Violet"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-18",
         puzzle: [
             {
                 title: "Métaux",
@@ -18,6 +60,90 @@ const puzzles = [
             {
                 title: "Ensembles pour la table",
                 words: ["Argenterie", "Orfèvrerie", "Ménagère", "Vaisselle"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-15",
+        puzzle: [
+            {
+                title: "Oranges",
+                words: ["Abricot", "Carotte", "Tangerine", "Citrouille"]
+            },
+            {
+                title: "Marrons",
+                words: ["Chocolat", "Noisette", "Caramel", "Cannelle"]
+            },
+            {
+                title: "Roses",
+                words: ["Bonbon", "Cerise", "Prune", "Framboise"]
+            },
+            {
+                title: "Verts",
+                words: ["Anis", "Citron", "Amande", "Menthe"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-13",
+        puzzle: [
+            {
+                title: "Acteurs",
+                words: ["Depardieu", "Reno", "Cassel", "Seydoux"]
+            },
+            {
+                title: "François + _",
+                words: ["1er", "Mitterrand", "Hollande", "Pignon"]
+            },
+            {
+                title: "Présidents",
+                words: ["Sarkozy", "Macron", "Chirac", "De Gaulle"]
+            },
+            {
+                title: "Prénoms de chanteurs (Dassin, Gainsbourg, Brassens, Piaf)",
+                words: ["Joe", "Serge", "Georges", "Edith"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-11",
+        puzzle: [
+            {
+                title: "Dentition",
+                words: ["Incisive", "Canine", "Molaire", "Gencive"]
+            },
+            {
+                title: "Acerbe",
+                words: ["Tranchante", "Hargneuse", "Aggressive", "Mordante"]
+            },
+            {
+                title: "Autour du lavabo",
+                words: ["Dentifrice", "Rasoir", "Brosse", "Savon"]
+            },
+            {
+                title: "Pâte à",
+                words: ["Fix", "Modeler", "Tartiner", "Choux"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-08",
+        puzzle: [
+            {
+                title: "Fleurs",
+                words: ["Pervenche", "Marguerite", "Jacinthe", "Bégonia"]
+            },
+            {
+                title: "Classiques de l'apéro",
+                words: ["Olive", "Chips", "Cacahuètes", "Saucisson"]
+            },
+            {
+                title: "Nuances de 🟣",
+                words: ["Violet", "Mauve", "Indigo", "Magenta"]
+            },
+            {
+                title: "Condiments",
+                words: ["Moutarde", "Poivre", "Cornichon", "Échalote"]
             },
         ]
     },
