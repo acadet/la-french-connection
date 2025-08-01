@@ -33,7 +33,7 @@ body {
     margin: 0 auto;
 }
 
-.grid-block, .category-result, .submit-button, .deselect-button, .shuffle-button {
+.grid-block, .category-result, .submit-button, .deselect-button, .shuffle-button, .share-button {
     font-size: clamp(0.4rem, 3vw, 1rem);
 }
 
@@ -68,7 +68,7 @@ body {
 }
 
 /* Submit button */
-.submit-button, .deselect-button, .shuffle-button {
+.submit-button, .deselect-button, .shuffle-button, .share-button {
     padding: 12px 30px;
     color: white;
     border: none;
@@ -79,27 +79,31 @@ body {
     text-transform: uppercase;
 }
 
-.submit-button {
+.submit-button, .share-button {
     background-color: #333;
 }
 
-.submit-button:hover, .deselect-button:hover, .shuffle-button:hover {
+.share-button {
+    display: none;
+}
+
+.submit-button:hover, .deselect-button:hover, .shuffle-button:hover, .share-button:hover {
     background-color: #555;
     transform: translateY(-1px);
 }
 
-.submit-button:active, .deselect-button:active, .shuffle-button:active {
+.submit-button:active, .deselect-button:active, .shuffle-button:active, .share-button:active {
     transform: translateY(0);
 }
 
-.submit-button:disabled, .deselect-button:disabled, .shuffle-button:disabled {
+.submit-button:disabled, .deselect-button:disabled, .shuffle-button:disabled, .share-button:disabled {
     background-color: #ccc;
     color: #888;
     cursor: not-allowed;
     transform: none;
 }
 
-.submit-button:disabled:hover, .deselect-button:disabled:hover, .shuffle-button:disabled:hover {
+.submit-button:disabled:hover, .deselect-button:disabled:hover, .shuffle-button:disabled:hover, .share-button:disabled:hover {
     background-color: #ccc;
     transform: none;
 }

@@ -296,6 +296,11 @@ function addShuffleListener() {
     });
 }
 
+function addShareListener() {
+    const shareButton = document.querySelector('.share-button');
+    shareButton.addEventListener('click', shareResults);
+}
+
 // Shuffle remaining word blocks
 function shuffleRemainingBlocks() {
     const remainingWordBlocks = document.querySelectorAll('.grid-block:not(.category-result)');
@@ -429,34 +434,27 @@ function revealAllCategories() {
 
 // Show share button and hide submit button
 function showShareButton() {
-    const submitButton = document.querySelector('.submit-button');
-    const buttonContainer = document.querySelector('.button-container');
+    const otherButtons = document.querySelectorAll('.submit-button, .deselect-button, .shuffle-button');
     
-    // Hide submit button
-    submitButton.style.display = 'none';
+    // Hide other buttons
+    otherButtons.forEach(button => {
+        button.style.display = 'none';
+    });
     
     // Create share button if it doesn't exist
     let shareButton = document.querySelector('.share-button');
-    if (!shareButton) {
-        shareButton = document.createElement('button');
-        shareButton.className = 'submit-button share-button';
-        shareButton.textContent = 'Partager mes résultats';
-        shareButton.addEventListener('click', shareResults);
-        buttonContainer.appendChild(shareButton);
-    } else {
-        shareButton.style.display = 'block';
-    }
+    shareButton.style.display = 'block';
 }
 
 // Hide share button and show submit button
 function hideShareButton() {
-    const submitButton = document.querySelector('.submit-button:not(.share-button)');
+    const otherButtons = document.querySelectorAll('.submit-button, .deselect-button, .shuffle-button');
     const shareButton = document.querySelector('.share-button');
     
-    // Show submit button
-    if (submitButton) {
-        submitButton.style.display = 'block';
-    }
+     // Hide other buttons
+     otherButtons.forEach(button => {
+        button.style.display = 'block';
+    });
     
     // Hide share button
     if (shareButton) {
@@ -590,6 +588,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add shuffle button click listener
     addShuffleListener();
+    
+    // Add share button click listener
+    addShareListener();
     
     // Initialize the game
     fillGrid();
