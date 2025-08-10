@@ -1,6 +1,195 @@
 const puzzles = [
 
     {
+        date: "2025-09-12",
+        puzzle: [
+            {
+                title: "Schtroumpfs",
+                words: ["Costaud", "Paresseux", "Coquet", "Farceur"]
+            },
+            {
+                title: "Ont un compagnon à poil",
+                words: ["Tintin", "Spirou", "Charlie Brown", "Calvin"]
+            },
+            {
+                title: "Personnages de Tintin",
+                words: ["Castafiore", "Tournesol", "Milou", "Haddock"]
+            },
+            {
+                title: "Lexique de la Bande Dessinée",
+                words: ["Bulle", "Case", "Planche", "Bande"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-10",
+        puzzle: [
+            {
+                title: "Se mange et est une couleur",
+                words: ["Aubergine", "Olive", "Pêche", "Chocolat"]
+            },
+            {
+                title: "Star",
+                words: ["Gloire", "Célébrité", "Vedette", "Figure"]
+            },
+            {
+                title: "Qui est gros",
+                words: ["Bedonnant", "Grassouillet", "Rondouillard", "Ventru"]
+            },
+            {
+                title: "Parties du corps",
+                words: ["Bide", "Guiboles", "Popotin", "Caboche"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-08",
+        puzzle: [
+            {
+                title: "Se trouve à la ferme",
+                words: ["Âne", "Cochon", "Lapin", "Poules"]
+            },
+            {
+                title: "En apprentissage",
+                words: ["Apprenti", "Stagiaire", "Étudiant", "Disciple"]
+            },
+            {
+                title: "Pirate",
+                words: ["Flibustier", "Corsaire", "Ecumeur", "Forban"]
+            },
+            {
+                title: "Difficile",
+                words: ["Coton", "Épineux", "Chaud", "Vache"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-05",
+        puzzle: [
+            {
+                title: "Prénoms",
+                words: ["Riki", "Ricardo", "Richard", "Rick"]
+            },
+            {
+                title: "Anisés",
+                words: ["Ricard", "Ouzu", "Pastis", "Sambuca"]
+            },
+            {
+                title: "Sobriquet pour 🇺🇸",
+                words: ["Ricain", "Amerloc", "Yankee", "Gringo"]
+            },
+            {
+                title: "Ric + _",
+                words: ["aner", "ochet", "helieu", "hissime"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-03",
+        puzzle: [
+            {
+                title: "Pardessus",
+                words: ["Anorak", "Veste", "Paraka", "Imperméable"]
+            },
+            {
+                title: "Effets",
+                words: ["Valise", "Balluchon", "Mallette", "Paquetage"]
+            },
+            {
+                title: "Moyens de transport",
+                words: ["Navire", "Navette", "Funiculaire", "Car"]
+            },
+            {
+                title: "Porte + _",
+                words: ["Feuille", "Bagage", "Manteau", "Avion"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-01",
+        puzzle: [
+            {
+                title: "Bruits d'animaux",
+                words: ["Ouaf", "Pataclop", "Meuh", "Coin coin"]
+            },
+            {
+                title: "Acronymes courants",
+                words: ["SNCF", "CAF", "CPAM", "PME"]
+            },
+            {
+                title: "Abréviations courantes",
+                words: ["SECU", "CAD", "QQC", "RDV"]
+            },
+            {
+                title: "Sport national 🇫🇷",
+                words: ["Argh", "Roooo", "Tss", "Grrr"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-29",
+        puzzle: [
+            {
+                title: "En cours",
+                words: ["Présent", "Actuel", "Courant", "Contemporain"]
+            },
+            {
+                title: "Avenir",
+                words: ["Futur", "Suivant", "Ultérieur", "Prochain"]
+            },
+            {
+                title: "Peut être",
+                words: ["Conditionnel", "Hypothétique", "Incertain", "Conjectural"]
+            },
+            {
+                title: "Antan",
+                words: ["Passé", "Accompli", "Révolu", "Ancien"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-27",
+        puzzle: [
+            {
+                title: "À la natation",
+                words: ["Brasse", "Papillon", "Coulée", "Apnée"]
+            },
+            {
+                title: "Au tennis",
+                words: ["Revers", "Filet", "Volée", "Amorti"]
+            },
+            {
+                title: "Au Football",
+                words: ["Gardien", "Coup-Franc", "Hors-jeu", "Passe"]
+            },
+            {
+                title: "Au Rugby",
+                words: ["Essai", "Mêlée", "Talonneur", "Transformer"]
+            },
+        ]
+    },
+    {
+        date: "2025-08-25",
+        puzzle: [
+            {
+                title: "Collation à l'apéro",
+                words: ["Apéricube", "Chips", "Pistaches", "Tomates cerises"]
+            },
+            {
+                title: "Collation en balade",
+                words: ["Barre céréalière", "Noix", "Fruits secs", "Banane"]
+            },
+            {
+                title: "Collation au cinéma",
+                words: ["Popcorn", "Chocolat", "Bonbons", "Caramel"]
+            },
+            {
+                title: "Collation du goûter",
+                words: ["Nutella", "Pain", "Compote", "Yaourt"]
+            },
+        ]
+    },
+    {
         date: "2025-08-22",
         puzzle: [
             {
