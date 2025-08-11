@@ -310,7 +310,7 @@ const puzzles = [
                 words: ["Dentifrice", "Rasoir", "Brosse", "Savon"]
             },
             {
-                title: "Pâte à",
+                title: "Pâte à + _",
                 words: ["Fix", "Modeler", "Tartiner", "Choux"]
             },
         ]
