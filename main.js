@@ -509,13 +509,16 @@ function populateDateDropdown() {
     
     // Filter puzzles to only include past and today's puzzles
     const availablePuzzles = puzzles.filter(puzzle => puzzle.date <= today);
+    var index = availablePuzzles.length;
     
     // Populate dropdown with available puzzles
     availablePuzzles.forEach(puzzle => {
         const option = document.createElement('option');
         option.value = puzzle.date;
-        option.textContent = formatDate(puzzle.date);
+        const indexText = index < 10 ? `0${index}` : index;
+        option.textContent = `${indexText} - ${formatDate(puzzle.date)}`;
         dropdown.appendChild(option);
+        index--;
     });
     
     // Set default to the most recent available puzzle (closest to today)
