@@ -72,7 +72,7 @@ const puzzles = [
             },
             {
                 title: "Anisés",
-                words: ["Ricard", "Ouzu", "Pastis", "Sambuca"]
+                words: ["Ricard", "Ouzo", "Pastis", "Sambuca"]
             },
             {
                 title: "Sobriquet pour 🇺🇸",
@@ -89,7 +89,7 @@ const puzzles = [
         puzzle: [
             {
                 title: "Pardessus",
-                words: ["Anorak", "Veste", "Paraka", "Imperméable"]
+                words: ["Anorak", "Veste", "Parka", "Imperméable"]
             },
             {
                 title: "Effets",
