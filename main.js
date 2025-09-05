@@ -403,15 +403,13 @@ function revealAllCategories() {
     if (!selectedPuzzle) return;
     
     const gridContainer = document.querySelector('.grid-container');
-    const existingCategoryBlocks = gridContainer.querySelectorAll('.category-result');
-    const solvedCategories = existingCategoryBlocks.length;
     
     // Clear all selected blocks first
     const clickedBlocks = document.querySelectorAll('.grid-block.clicked');
     clickedBlocks.forEach(block => block.classList.remove('clicked'));
     
     // Reveal remaining categories
-    for (let i = solvedCategories; i < selectedPuzzle.puzzle.length; i++) {
+    for (let i = 0; i < selectedPuzzle.puzzle.length; i++) {
         const category = selectedPuzzle.puzzle[i];
         const categoryWords = category.words;
         
