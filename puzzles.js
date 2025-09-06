@@ -89,7 +89,7 @@ const puzzles = [
         puzzle: [
             {
                 title: "Pardessus",
-                words: ["Anorak", "Veste", "Paraka", "Imperméable"]
+                words: ["Anorak", "Veste", "Parka", "Imperméable"]
             },
             {
                 title: "Effets",
