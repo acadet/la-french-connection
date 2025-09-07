@@ -13,6 +13,12 @@ function getTodaysDate() {
     return `${year}-${month}-${day}`;
 }
 
+// Get puzzle date from URL parameter
+function getPuzzleDateFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('puzzle');
+}
+
 // Find puzzle for selected date
 function getSelectedPuzzle() {
     return puzzles.find(puzzle => puzzle.date === selectedPuzzleDate);
@@ -521,9 +527,27 @@ function populateDateDropdown() {
         index--;
     });
     
-    // Set default to the most recent available puzzle (closest to today)
-    if (availablePuzzles.length > 0) {
-        selectedPuzzleDate = availablePuzzles[0].date;
+    // Determine default puzzle selection
+    let defaultPuzzleDate = null;
+    
+    // Check for URL parameter first
+    const urlPuzzleDate = getPuzzleDateFromURL();
+    if (urlPuzzleDate) {
+        // Check if the URL parameter matches an available puzzle
+        const matchingPuzzle = availablePuzzles.find(puzzle => puzzle.date === urlPuzzleDate);
+        if (matchingPuzzle) {
+            defaultPuzzleDate = urlPuzzleDate;
+        }
+    }
+    
+    // Fallback to the latest available puzzle if no URL match or no URL parameter
+    if (!defaultPuzzleDate && availablePuzzles.length > 0) {
+        defaultPuzzleDate = availablePuzzles[0].date; // First item is the latest due to sorting
+    }
+    
+    // Set the selected puzzle date and dropdown value
+    if (defaultPuzzleDate) {
+        selectedPuzzleDate = defaultPuzzleDate;
         dropdown.value = selectedPuzzleDate;
     }
 }
@@ -545,6 +569,12 @@ function addDateDropdownListener() {
     
     dropdown.addEventListener('change', function() {
         selectedPuzzleDate = this.value;
+        
+        // Update URL parameter
+        const url = new URL(window.location);
+        url.searchParams.set('puzzle', selectedPuzzleDate);
+        window.history.replaceState({}, '', url);
+        
         resetGame();
     });
 }
