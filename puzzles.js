@@ -1,6 +1,132 @@
 const puzzles = [
 
     {
+        date: "2025-09-26",
+        puzzle: [
+            {
+                title: "Plomberie",
+                words: ["Tuyau", "Robinet", "Evier", "Lavabo"]
+            },
+            {
+                title: "Rangement",
+                words: ["Étagère", "Bibliothèque", "Placard", "Commode"]
+            },
+            {
+                title: "Pieces",
+                words: ["Entrée", "Cellier", "Grenier", "Buanderie"]
+            },
+            {
+                title: "Tables",
+                words: ["Basse", "Ronde", "De chevet", "A manger"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-24",
+        puzzle: [
+            {
+                title: "Elements de toiture",
+                words: ["Cheminee", "Tuile", "Gouttiere", "Charpente"]
+            },
+            {
+                title: "Maconnerie",
+                words: ["Mur", "Cloison", "Pilier", "Paroi"]
+            },
+            {
+                title: "Sols",
+                words: ["Moquette", "Lino", "Plancher", "Carrelage"]
+            },
+            {
+                title: "Decore les murs",
+                words: ["Papier peint", "Peinture", "Revetement", "Enduit"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-22",
+        puzzle: [
+            {
+                title: "Elements de toiture",
+                words: ["Cheminee", "Tuile", "Gouttiere", "Charpente"]
+            },
+            {
+                title: "Maconnerie",
+                words: ["Mur", "Cloison", "Pilier", "Paroi"]
+            },
+            {
+                title: "Sols",
+                words: ["Moquette", "Lino", "Plancher", "Carrelage"]
+            },
+            {
+                title: "Decore les murs",
+                words: ["Papier peint", "Peinture", "Revetement", "Enduit"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-19",
+        puzzle: [
+            {
+                title: "Seins",
+                words: ["Miches", "Lolos", "Nichons", "Nibards"]
+            },
+            {
+                title: "Ventre",
+                words: ["Bedaine", "Panse", "Brioche", "Buffet"]
+            },
+            {
+                title: "Bouche",
+                words: ["Boite a camembert", "Bec", "Clapet", "Gueule"]
+            },
+            {
+                title: "Tête",
+                words: ["Poire", "Tronche", "Frimousse", "Bouille"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-17",
+        puzzle: [
+            {
+                title: "Symboles de la France",
+                words: ["Coq", "Marianne", "Lys", "Hexagone"]
+            },
+            {
+                title: "Pour ne pas dire merde",
+                words: ["Mince", "Zut", "Puree", "Mercredi"]
+            },
+            {
+                title: "Classiques de la cantine",
+                words: ["Hachis parmentier", "Demi pamplemousse", "Endives au jambon", "Petits-suisses"]
+            },
+            {
+                title: "Frime",
+                words: ["Esbroufe", "Chiqué", "Comédie", "Bluff"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-15",
+        puzzle: [
+            {
+                title: "Qui est noir & blanc",
+                words: ["Zèbre", "Échecs", "Piano", "Poivre & Sel"]
+            },
+            {
+                title: "Vélo",
+                words: ["Petite reine", "Bicyclette", "Bécane", "Cycle"]
+            },
+            {
+                title: "Mensonges",
+                words: ["Balivernes", "Foutaises", "Craques", "Inventions"]
+            },
+            {
+                title: "Sur + _",
+                words: ["Saut", "Effectif", "Fait", "Prendre"]
+            },
+        ]
+    },
+    {
         date: "2025-09-12",
         puzzle: [
             {
