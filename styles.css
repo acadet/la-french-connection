@@ -34,7 +34,7 @@ body {
 }
 
 .grid-block, .category-result, .submit-button, .deselect-button, .shuffle-button, .share-button {
-    font-size: clamp(8px, 75%, 16px);
+    font-size: clamp(8px, 3vw, 16px);
 }
 
 /* Grid blocks */
@@ -51,7 +51,7 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     user-select: none;
-    word-break: break-word;
+    word-break: break-all;
     min-width: 0;
     min-height: 0;
 }
