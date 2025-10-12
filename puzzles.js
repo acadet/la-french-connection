@@ -1,6 +1,132 @@
 const puzzles = [
 
     {
+        date: "2025-10-22",
+        puzzle: [
+            {
+                title: "Romans",
+                words: ["Polar", "Classique", "Épistolaire", "Aventures"]
+            },
+            {
+                title: "Pièces de théâtres",
+                words: ["Tragédie", "Comédie", "Moralité", "Farce"]
+            },
+            {
+                title: "Sous genres narratifs",
+                words: ["Biographie", "Journal", "Conte", "Nouvelle"]
+            },
+            {
+                title: "Sous genres argumentatifs",
+                words: ["Pamphlet", "Essai", "Fable", "Sermon"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-20",
+        puzzle: [
+            {
+                title: "Peintres",
+                words: ["Monet", "Cézanne", "Delacroix", "Matisse"]
+            },
+            {
+                title: "Poètes",
+                words: ["Baudelaire", "Rimbaud", "Prévert", "Verlaine"]
+            },
+            {
+                title: "Auteurs",
+                words: ["Camus", "Hugo", "Balzac", "Dumas"]
+            },
+            {
+                title: "Dramaturges",
+                words: ["Molière", "Racine", "Corneille", "Ionesco"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-17",
+        puzzle: [
+            {
+                title: "Pizzas",
+                words: ["Reine", "Margherita", "Quatre Saisons", "Pepperoni"]
+            },
+            {
+                title: "Cervides",
+                words: ["Renne", "Cerf", "Élan", "Daim"]
+            },
+            {
+                title: "Villes de Bretagne",
+                words: ["Rennes", "Brest", "Quimper", "Saint-Malo"]
+            },
+            {
+                title: "Pour guider un cheval",
+                words: ["Rênes", "Longe", "Bride", "Licol"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-15",
+        puzzle: [
+            {
+                title: "Jumeau",
+                words: ["Alter ego", "Binôme", "Gémeau", "Réplique"]
+            },
+            {
+                title: "Étienne",
+                words: ["Estève", "Stefano", "Stephen", "エティエンヌ"]
+            },
+            {
+                title: "Guillaume",
+                words: ["Guilhem", "William", "Guigz", "Vilhjálmur"]
+            },
+            {
+                title: "Petit + _ ",
+                words: ["Frère", "Four", "Suisse", "Lait"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-13",
+        puzzle: [
+            {
+                title: "Noir & Blanc",
+                words: ["Échecs", "Dalmatien", "Code barres", "Piano"]
+            },
+            {
+                title: "Ne pas réussir",
+                words: ["Échouer", "Foirer", "Coller", "Merder"]
+            },
+            {
+                title: "Au tennis",
+                words: ["Service", "Coups droit", "Smash", "Amorti"]
+            },
+            {
+                title: "Complication",
+                words: ["Contretemps", "Revers", "Accroc", "Imprévu"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-10",
+        puzzle: [
+            {
+                title: "Mots composés",
+                words: ["Grille-Pain", "Gagne-Pain", "Gallo-Romain", "Globe-Trotter"]
+            },
+            {
+                title: "Gratte + _",
+                words: ["Ciel", "Cul", "Papier", "Pieds"]
+            },
+            {
+                title: "Grand + _",
+                words: ["Oncle", "Papa", "Mère", "Tante"]
+            },
+            {
+                title: "Garde + _",
+                words: ["Boue", "Fou", "Manger", "Robe"]
+            },
+        ]
+    },
+    {
         date: "2025-10-08",
         puzzle: [
             {
