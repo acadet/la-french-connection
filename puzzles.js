@@ -1,6 +1,111 @@
 const puzzles = [
 
     {
+        date: "2025-10-08",
+        puzzle: [
+            {
+                title: "Ont un palais royal",
+                words: ["Versailles", "Chantilly", "Fontainebleau", "Chambord"]
+            },
+            {
+                title: "Plus grandes villes après Paris",
+                words: ["Marseille", "Lyon", "Toulouse", "Nice"]
+            },
+            {
+                title: "Villes côtières",
+                words: ["Saint-Malo", "La Rochelle", "Biarritz", "Menton"]
+            },
+            {
+                title: "Stations de ski",
+                words: ["Val Thorens", "Alpe d'Huez", "Courchevel", "La Plagne"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-06",
+        puzzle: [
+            {
+                title: "Fesses",
+                words: ["Popotin", "Train", "Derrière", "Boule"]
+            },
+            {
+                title: "Bouffe",
+                words: ["Popote", "Tambouille", "Soupe", "Bectance"]
+            },
+            {
+                title: "Discuter",
+                words: ["Papoter", "Bavarder", "Causer", "Chatter"]
+            },
+            {
+                title: "Copain",
+                words: ["Pote", "Gros", "Frère", "Vieux"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-03",
+        puzzle: [
+            {
+                title: "Musées de Paris",
+                words: ["Orsay", "Louvre", "Pompidou", "Branly"]
+            },
+            {
+                title: "Quartiers de Paris",
+                words: ["Marais", "Montmartre", "Latin", "Belleville"]
+            },
+            {
+                title: "Gares de Paris",
+                words: ["Montparnasse", "Lyon", "Saint Lazare", "Nord"]
+            },
+            {
+                title: "Stations de métro parisiennes",
+                words: ["République", "Défense", "Opéra", "Nation"]
+            },
+        ]
+    },
+    {
+        date: "2025-10-01",
+        puzzle: [
+            {
+                title: "Desserts classiques 🇫🇷",
+                words: ["Profiteroles", "Far breton", "Tropezienne", "Paris Brest"]
+            },
+            {
+                title: "Sandwiches classiques 🇫🇷",
+                words: ["Croque Monsieur", "Jambon beurre", "Pan bagnat", "Rosette de Lyon"]
+            },
+            {
+                title: "Spécialités culinaires 🇫🇷",
+                words: ["Cassoulet", "Bourguignon", "Tartiflette", "Quiche"]
+            },
+            {
+                title: "Avoir faim",
+                words: ["Dalle", "Creux", "Famine", "Crocs"]
+            },
+        ]
+    },
+    {
+        date: "2025-09-29",
+        puzzle: [
+            {
+                title: "Cuisson des œufs",
+                words: ["Dur", "Mollet", "A la coque", "Poché"]
+            },
+            {
+                title: "Coiffures",
+                words: ["Chignon", "Tresse", "Natte", "Queue de cheval"]
+            },
+            {
+                title: "Difficile",
+                words: ["Ardu", "Complexe", "Compliqué", "Laborieux"]
+            },
+            {
+                title: "_ + a cheval",
+                words: ["Fer", "Œuf", "Balade", "Chasseur"]
+            },
+        ]
+    },
+    {
         date: "2025-09-26",
         puzzle: [
             {
